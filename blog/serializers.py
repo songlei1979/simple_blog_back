@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
@@ -19,3 +20,9 @@ class PostSerializer(ModelSerializer):
         fields = ['id', 'title', 'content',
                   'updated_at', 'image', 'author', 'category', 'likes',
                   'category_name', 'author_username']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'password']

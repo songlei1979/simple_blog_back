@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.authtoken import views
+
+from blog.views import logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('blog.urls')),
+    path('api-token-auth/', views.obtain_auth_token),
+    path('logout/', logout_view, name='logout'),
+
 ]
