@@ -10,3 +10,8 @@ def logout_view(request):
     user = request.user
     user.auth_token.delete()
     return Response(status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def get_user_id(request):
+    return Response(request.user.id)
